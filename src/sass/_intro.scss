@@ -1,0 +1,52 @@
+.intro {
+  @include container;
+
+  @include breakpoint-up(43.9375em) {
+    display: grid;
+    grid-template-columns: [intro-start] 2fr [text-start] 1fr [img-end] 2fr [intro-end];
+    grid-template-rows: 1fr 2fr;
+  }
+
+  &__image {
+    img {
+      max-width: 100%;
+    }
+
+    @include breakpoint-up(43.9375em) {
+      grid-column: intro / intro;
+      grid-row: 1 / 3;
+      justify-self: right;
+    }
+
+    @include breakpoint-up(66.25em) {
+      grid-column: intro / img;
+    }
+  }
+
+  &__text {
+    background-color: $white;
+    text-align: center;
+    padding: 1.25em 1em;
+
+    @include breakpoint-up(43.9375em) {
+      grid-column: intro / text;
+      grid-row: 2 / 3;
+      text-align: left;
+      max-width: 34.69em;
+      margin-top: 1.25em;
+      padding: 1.25em 3.4375em;
+
+      h1 {
+        margin-bottom: auto;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoint-up(66.25em) {
+      grid-column: text / intro;
+    }
+  }
+}

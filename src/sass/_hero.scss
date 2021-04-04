@@ -1,0 +1,30 @@
+.hero {
+  background: url(/images/mobile/image-hero.jpg) no-repeat center / cover;
+  height: 100vh;
+  margin-top: -8em;
+  margin-bottom: 3em;
+  @include container;
+
+  @include breakpoint-up(40em) {
+    background: url(/images/desktop/image-hero.jpg) no-repeat center / cover;
+    height: 110vh;
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    text-align: left;
+    padding: 0 1.5625em;
+    border: 1px solid $white;
+
+    @include breakpoint-up(64em) {
+      left: 5.1875em;
+      width: 41%;
+      padding: 0 2.563em;
+      transform: translateY(-50%);
+    }
+  }
+}

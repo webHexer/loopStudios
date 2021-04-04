@@ -1,0 +1,113 @@
+.header {
+  position: relative;
+  z-index: 100;
+  background: transparent;
+  transition: all 200ms ease-in-out;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include container;
+  }
+
+  &__logo {
+    img {
+      width: 9em;
+      height: 1.4375em;
+    }
+  }
+
+  &__hamburger {
+    cursor: pointer;
+
+    > span {
+      background-color: $white;
+      display: block;
+      width: 26px;
+      height: 2px;
+      transform-origin: 3px 1px;
+      transition: all 250ms ease-in-out;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  //desktop links
+  &__links {
+    a {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: 2em;
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: -12px;
+        transform: translateX(-50%);
+        background-color: $white;
+        width: 1.7em;
+        height: 2px;
+        opacity: 0;
+        transition: all 300ms ease-in-out;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  //mobile menu that will be open on hamburger click
+
+  &.open {
+    .header__hamburger {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+
+    background: $black;
+  }
+
+  .overlay {
+    opacity: 0;
+    position: fixed;
+    top: 5em;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: $black;
+
+    @include container;
+  }
+
+  &__menu {
+    margin: auto 0;
+
+    a {
+      display: block;
+      font-size: 1.375em;
+      margin-bottom: 0.813em;
+
+      &:hover {
+        color: $darkPink;
+      }
+    }
+  }
+}

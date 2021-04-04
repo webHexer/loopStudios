@@ -1,0 +1,96 @@
+.footer {
+  color: $white;
+  background-color: $black;
+  text-align: center;
+  @include container;
+
+  @include breakpoint-up(56.25em) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr 1fr;
+  }
+
+  &__logo {
+    img {
+      width: 11em;
+      height: 2em;
+      margin: 1.7em 0 2em;
+    }
+
+    @include breakpoint-up(56.25em) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      justify-self: left;
+
+      img {
+        margin: 1em 0;
+      }
+    }
+  }
+
+  &__links {
+    margin-bottom: 2.5em;
+
+    a {
+      display: block;
+      margin-bottom: 1.4em;
+      transition: all 150ms ease-in-out;
+
+      &:hover {
+        color: $darkPink;
+      }
+    }
+
+    @include breakpoint-up(56.25em) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      justify-self: left;
+      display: flex;
+      margin-bottom: 0;
+
+      a {
+        &:not(:last-child) {
+          margin-right: 1.5em;
+        }
+      }
+    }
+  }
+
+  &__social {
+    margin: 1.4em 0;
+
+    @include breakpoint-up(56.25em) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      justify-self: right;
+      align-self: center;
+      text-align: right;
+    }
+
+    a {
+      &:not(:last-child) {
+        margin-right: 1.5em;
+      }
+
+      svg path {
+        transition: fill 150ms ease-in-out;
+      }
+
+      &:hover svg path {
+        fill: $darkPink;
+      }
+    }
+  }
+
+  &__copyright {
+    font-family: "Alata", sans-serif;
+    color: $darkGray;
+
+    @include breakpoint-up(56.25em) {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-self: right;
+      text-align: right;
+    }
+  }
+}
